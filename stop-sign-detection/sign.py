@@ -23,6 +23,8 @@ GPIO.setmode(GPIO.BOARD)  # Use physical pin numbering
 # Set pin 8 to be an output pin and set initial value to low (off)
 GPIO.setup(stopPin, GPIO.OUT, initial=GPIO.LOW)
 
+print('Sign detection started...')
+
 while True:
     if not video_capture.isOpened():
         print('Unable to load camera.')
