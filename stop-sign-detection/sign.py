@@ -46,9 +46,9 @@ while True:
         # cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
         print("Stop sign detected!!")
         GPIO.output(stopPin, GPIO.HIGH)  # Turn on
-        sleep(1)  # Sleep for 1 second
+        sleep(0.2)  # Sleep for 1 second
         GPIO.output(stopPin, GPIO.LOW)  # Turn off
-        sleep(1)  # Sleep for 1 second
+        sleep(0.2)  # Sleep for 1 second
 
     if anterior != len(faces):
         anterior = len(faces)
