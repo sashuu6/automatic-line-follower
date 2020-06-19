@@ -7,6 +7,7 @@ from imutils.video import VideoStream
 
 import RPi.GPIO as GPIO  # Import Raspberry Pi GPIO library
 from time import sleep  # Import the sleep function from the time module
+import atexit
 
 cascPath = "stop_haar.xml"
 faceCascade = cv2.CascadeClassifier(cascPath)
@@ -28,6 +29,13 @@ GPIO.setup(startSigPin, GPIO.OUT, initial=GPIO.LOW)
 print('Sign detection started...')
 GPIO.output(startSigPin, GPIO.HIGH)  # Turn on
 
+
+def exit_handler():
+    GPIO.output(startSigPin, GPIO.LOW)  # Turn on
+    print('Program closed')
+
+
+atexit.register(exit_handler)
 
 while True:
     if not video_capture.isOpened():
