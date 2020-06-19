@@ -65,10 +65,10 @@ void loop() {
     if (leftValue == rightValue) {
       Serial.println("Go Straight");
       moveforward();
-    } else if (leftValue < rightValue) {
+    } else if (leftValue > rightValue) {
       Serial.println("Turn Left");
       moveLeft();
-    } else if (leftValue > rightValue){
+    } else if (leftValue < rightValue){
       Serial.println("Turn Right");
       moveRight();
     }
@@ -110,7 +110,7 @@ void moveRight() {
 void moveStop() {
   digitalWrite(motorRightA,LOW);
   digitalWrite(motorRightB,LOW);
-  digitalWrite(motorLeftA,LOW );
+  digitalWrite(motorLeftA,LOW);
   digitalWrite(motorLeftB,LOW);
 }
 
