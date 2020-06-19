@@ -18,16 +18,14 @@ video_capture = cv2.VideoCapture(0)
 anterior = 0
 
 stopPin = 5
+startSigPin = 7
 GPIO.setwarnings(False)  # Ignore warning for now
 GPIO.setmode(GPIO.BOARD)  # Use physical pin numbering
 # Set pin 8 to be an output pin and set initial value to low (off)
 GPIO.setup(stopPin, GPIO.OUT, initial=GPIO.LOW)
 
 print('Sign detection started...')
-GPIO.output(stopPin, GPIO.HIGH)  # Turn on
-sleep(1)  # Sleep for 1 second
-GPIO.output(stopPin, GPIO.LOW)  # Turn off
-sleep(1)  # Sleep for 1 second
+GPIO.output(startSigPin, GPIO.HIGH)  # Turn on
 
 
 while True:
