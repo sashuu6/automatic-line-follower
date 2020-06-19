@@ -24,6 +24,11 @@ GPIO.setmode(GPIO.BOARD)  # Use physical pin numbering
 GPIO.setup(stopPin, GPIO.OUT, initial=GPIO.LOW)
 
 print('Sign detection started...')
+GPIO.output(stopPin, GPIO.HIGH)  # Turn on
+sleep(1)  # Sleep for 1 second
+GPIO.output(stopPin, GPIO.LOW)  # Turn off
+sleep(1)  # Sleep for 1 second
+
 
 while True:
     if not video_capture.isOpened():
